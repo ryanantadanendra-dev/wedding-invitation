@@ -28,7 +28,7 @@ export default function RSVPForm() {
       nama_undangan !== null ? nama_undangan : "Tamu Yang Terhormat",
     );
     formdata.append("kehadiran", status);
-    formdata.append("jumlah_tamu", jumlahTamu);
+    formdata.append("jumlah_tamu", jumlahTamu.toString());
 
     try {
       const response = await axios.post("/api/kehadiran", formdata);

@@ -3,7 +3,6 @@
 import useSWR from "swr";
 import Pagination from "./Pagination";
 import { getPaginatedUcapan, type Ucapan } from "../data";
-import type { LaravelPaginatedResponse } from "./types";
 import { useState } from "react";
 
 export default function ListUcapan() {

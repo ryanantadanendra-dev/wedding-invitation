@@ -3,6 +3,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import { expandShortUrl } from "./Action";
 import { getEmbedSrc } from "./mapUtils";
+import { CSSProperties } from "react";
+
+type MapPreviewProps = {
+  /** URL peta (misal link embed Google Maps atau short URL) */
+  url: string;
+  /** Tinggi preview, contoh: "350px", "50%", "20rem" */
+  height?: string;
+  /** Radius sudut border, contoh: "0px", "12px", "1rem" */
+  borderRadius?: string;
+  /** Tampilkan pesan error kalau gagal load/URL tidak valid */
+  showError?: boolean;
+  /** className tambahan untuk styling custom */
+  className?: string;
+  /** Inline style tambahan */
+  style?: CSSProperties;
+};
 
 export const MapPreview = ({
   url,
@@ -11,7 +27,7 @@ export const MapPreview = ({
   showError = true,
   className = "",
   style = {},
-}) => {
+}: MapPreviewProps) => {
   const [shouldLoad, setShouldLoad] = useState(false);
   const [embedSrc, setEmbedSrc] = useState(null);
   const [isValid, setIsValid] = useState(true);

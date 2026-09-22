@@ -1,10 +1,10 @@
 import axios from "@/lib/axios";
-import type { LaravelPaginatedResponse } from "@/types/pagination";
+import { LaravelPaginatedResponse } from "@/types";
 
 export type Kehadiran = {
   id: number;
   nama: string;
-  kehadiran: "hadir" | "tidak_hadir";
+  kehadiran: "hadir" | "tidak hadir";
   jumlah_tamu: number;
 };
 
@@ -18,7 +18,7 @@ export async function getKehadiran(
 ): Promise<LaravelPaginatedResponse<Kehadiran>> {
   const response = await axios
     .get(`/api/kehadiran?page=${page}`)
-    .then((res) => res);
+    .then((res) => res.data);
 
   return response;
 }

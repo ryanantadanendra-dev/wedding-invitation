@@ -1,4 +1,4 @@
-export function getEmbedSrc(url) {
+export function getEmbedSrc(url: string) {
   if (!url) return null;
 
   // If already an embed URL, return as-is

@@ -11,7 +11,6 @@ export default function KehadiranPage() {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  console.log(page);
 
   useEffect(() => {
     setIsLoading(true);
@@ -86,7 +85,7 @@ export default function KehadiranPage() {
 
               {!isLoading &&
                 !errorMessage &&
-                result?.data?.data.map((item) => (
+                result?.data?.map((item) => (
                   <tr key={item.id} className="hover:bg-gray-50">
                     <td className="px-6 py-3.5 text-gray-500">{item.id}</td>
                     <td className="px-6 py-3.5 font-medium text-gray-900">
@@ -113,16 +112,15 @@ export default function KehadiranPage() {
         </div>
 
         {/* Footer: info total + pagination */}
-        {!isLoading && result && result?.data?.total > 0 && (
+        {!isLoading && result && result?.total > 0 && (
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-4 border-t border-gray-200">
             <p className="text-sm text-gray-500">
-              Menampilkan {result?.data.from}–{result?.data.to} dari{" "}
-              {result?.data.total} data
+              Menampilkan {result?.from}–{result?.to} dari {result?.total} data
             </p>
 
             <Pagination
-              currentPage={result?.data?.current_page}
-              lastPage={result?.data?.last_page}
+              currentPage={result?.current_page}
+              lastPage={result?.last_page}
               onPageChange={setPage}
             />
           </div>

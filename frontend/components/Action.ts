@@ -4,7 +4,7 @@
  * Expands a shortened URL to its canonical form.
  * Browsers cannot do this client-side due to CORS.
  */
-export async function expandShortUrl(url) {
+export async function expandShortUrl(url: string) {
   // Return early if it doesn't look like a short link
   if (
     !url.includes("goo.gl") &&

@@ -1,8 +1,6 @@
-import { LabelHTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from "react";
 
-export type ButtonProp = LabelHTMLAttributes<HTMLLabelElement> & {
-  type: "submit" | "reset" | "button";
-};
+export type ButtonProp = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({ type = "submit", className, ...props }: ButtonProp) => (
   <button
