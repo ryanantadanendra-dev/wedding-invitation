@@ -18,7 +18,7 @@ export default function ListUcapan() {
 
   return (
     <div className="max-w-xl mx-auto py-10 px-4">
-      <h1 className="text-[20px] font-bold text-center mb-6">
+      <h1 className="text-[20px] font-bold text-center text-background mb-6">
         Ucapan &amp; Doa
       </h1>
 
@@ -32,19 +32,19 @@ export default function ListUcapan() {
             {result.data.map((ucapan) => (
               <li
                 key={ucapan.id}
-                className="rounded-lg border border-accent px-4 py-3"
+                className="rounded-lg border border-accent px-4 py-3 text-background"
               >
                 <p className="font-bold text-[14px] md:text-[16px] lg:text-[14px]">
                   {ucapan.nama}
                 </p>
-                <p className="text-[13px] md:text-[15px] lg:text-[13px] text-heading/80 mt-1">
+                <p className="text-[13px] md:text-[15px] lg:text-[13px]  mt-1">
                   {ucapan.pesan}
                 </p>
               </li>
             ))}
           </ul>
 
-          <p className="text-[12px] text-gray-500 text-center mb-4">
+          <p className="text-[12px] text-gray-100 text-center mb-4">
             Menampilkan {result.from}–{result.to} dari {result.total} ucapan
           </p>
 

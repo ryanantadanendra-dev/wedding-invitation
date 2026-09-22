@@ -36,7 +36,7 @@ export default function Pagination({
   return (
     <nav
       aria-label="Pagination"
-      className="flex items-center justify-center gap-1"
+      className="flex items-center justify-center gap-1 text-background"
     >
       {/* Tombol Prev */}
       <button

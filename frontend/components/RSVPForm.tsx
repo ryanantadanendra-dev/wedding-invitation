@@ -49,9 +49,12 @@ export default function RSVPForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full ps-3 mt-12 relative z-40">
+    <form
+      onSubmit={handleSubmit}
+      className="w-full ps-3 md:ps-12 mt-12 relative z-40 text-bacgkround"
+    >
       {/* Toggle Hadir / Tidak Hadir */}
-      <div className="w-full flex justify-start overflow-hidden pe-10">
+      <div className="w-full flex justify-start overflow-hidden pe-10 md:pe-0">
         <button
           type="button"
           onClick={() => setStatus("hadir")}
@@ -74,10 +77,10 @@ export default function RSVPForm() {
 
       {/* Jumlah Tamu — hanya relevan kalau hadir */}
       {status === "hadir" && (
-        <div className="mt-6 w-full pe-18 md:pe-27 lg:pe-18">
+        <div className="mt-6 w-full pe-18 md:pe-22 lg:pe-29 xl:pe-45">
           <label
             htmlFor="jumlah-tamu"
-            className="block text-background text-[14px] font-bold mb-2"
+            className="block text-background text-[14px] md:text-[18px] font-bold mb-2"
           >
             Jumlah Tamu
           </label>
@@ -89,7 +92,7 @@ export default function RSVPForm() {
               className="w-full text-background appearance-none rounded-xl border border-background bg-transparent py-3 px-4 pr-10 text-[14px] focus:outline-none"
             >
               {[1, 2, 3, 4, 5].map((n) => (
-                <option key={n} value={n} className="text-heading">
+                <option key={n} value={n} className="text-background">
                   {n}
                 </option>
               ))}
@@ -119,7 +122,7 @@ export default function RSVPForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-12 w-[117px] md:w-[140px] lg:w-[117px] h-[40px] md:h-[50px] lg:h-[40px] bg-accent text-background font-bold text-[10px] md:text-[14px] lg:text-[10px] rounded-tr-[20px] rounded-bl-[20px] disabled:opacity-60 transition-opacity"
+        className="mt-12 w-[117px] md:w-[140px] lg:w-[117px] h-[40px] md:h-[50px] lg:h-[40px] bg-transparen border border-background text-background font-bold text-[10px] md:text-[14px] lg:text-[10px] rounded-lg disabled:opacity-60 transition-opacity"
       >
         {isSubmitting ? "Mengirim..." : "Kirim"}
       </button>

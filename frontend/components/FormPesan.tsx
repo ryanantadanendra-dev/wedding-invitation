@@ -40,19 +40,19 @@ export default function FormPesan() {
   };
 
   return (
-    <div className="w-full rounded-2xl bg-background px-6 py-8">
-      <h2 className="text-center font-bold text-[18px] mb-6">
+    <div className="w-full rounded-2xl bg-transparent px-6 py-8">
+      <h2 className="text-center font-bold text-[18px] md:text-[22px] mb-6 text-background">
         Tinggalkan Pesan Untuk Kami
       </h2>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className=" flex flex-col gap-4 z-200">
         <input
           type="text"
           value={nama}
           onChange={(e) => setNama(e.target.value)}
           placeholder="Nama Undangan"
           required
-          className="w-full rounded-lg border border-accent bg-transparent px-4 py-3 text-[14px] italic placeholder:text-accent/70 focus:outline-none"
+          className="w-full rounded-lg border border-accent bg-transparent text-background px-4 py-3 text-[14px] italic placeholder:text-accent/70 focus:outline-none"
         />
 
         <textarea
@@ -61,14 +61,14 @@ export default function FormPesan() {
           placeholder="Tulis Pesan..."
           required
           rows={5}
-          className="w-full resize-none rounded-lg border border-accent bg-transparent px-4 py-3 text-[14px] placeholder:text-heading/40 focus:outline-none"
+          className="w-full resize-none text-background rounded-lg border border-accent bg-transparent px-4 py-3 text-[14px] placeholder:text-heading/40 focus:outline-none"
         />
 
         <div className="flex justify-end">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-[117px] md:w-[140px] lg:w-[117px] h-[40px] md:h-[50px] lg:h-[40px] px-8 bg-accent text-background font-bold text-[14px] md:text-[18px] lg:text-[14px] rounded-tr-[16px] rounded-bl-[16px] disabled:opacity-60 transition-opacity"
+            className="w-[117px] md:w-[140px] lg:w-[117px] h-[40px] md:h-[50px] lg:h-[40px] px-8 bg-transparent border border-background text-background font-bold text-[14px] md:text-[18px] lg:text-[14px] rounded-lg disabled:opacity-60 transition-opacity"
           >
             {isSubmitting ? "Mengirim..." : "Kirim"}
           </button>

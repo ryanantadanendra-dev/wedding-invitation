@@ -9,19 +9,5 @@ const images = [
 ];
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  return (
-    <div className="h-full w-full flex">
-      <section className="hidden lg:block flex-1 w-full h-full relative">
-        <div className="absolute bottom-0 right-4 text-background z-70">
-          <p className="text-end text-[20px]">The Wedding oF</p>
-          <h1 className="font-tangerine font-bold text-[48px]">
-            Surya & Trisna
-          </h1>
-        </div>
-        <div className="carousel-overlay " />
-        <ImageCarousel images={images} intervalMs={7000} fadeDurationMs={300} />
-      </section>
-      {children}
-    </div>
-  );
+  return <div className="h-full w-full flex">{children}</div>;
 }

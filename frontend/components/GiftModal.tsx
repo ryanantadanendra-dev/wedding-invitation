@@ -10,7 +10,7 @@ export const GiftModal = () => {
     <>
       <button
         onClick={() => setIsOpen("bank")}
-        className="w-[117px] md:w-[140px] lg:w-[117px] h-[40px] md:h-[50px] lg:h-[40px] mx-auto gap-1 mt-6 flex justify-center items-center bg-accent text-background rounded-tr-[20px] rounded-bl-[20px] text-[10px] z-90"
+        className="w-[117px] md:w-[140px] lg:w-[117px] h-[40px] md:h-[50px] lg:h-[40px] mx-auto gap-1 mt-6 flex justify-center items-center text-background border border-background rounded-lg bg-transparent text-[10px] z-90"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ export const GiftModal = () => {
       </button>
       <button
         onClick={() => setIsOpen("send")}
-        className="w-[117px] md:w-[140px] lg:w-[117px] h-[40px] md:h-[50px] lg:h-[40px] mx-auto gap-1 mt-6 flex justify-center items-center bg-accent text-background rounded-tr-[20px] rounded-bl-[20px] text-[10px] z-90"
+        className="w-[117px] md:w-[140px] lg:w-[117px] h-[40px] md:h-[50px] lg:h-[40px] mx-auto gap-1 mt-6 flex justify-center items-center bg-transparent border border-background rounded-lg text-background text-[10px] z-90"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ export const GiftModal = () => {
         }`}
       />
       <div
-        className={`bank-modal w-72 h-52 rounded-lg fixed top-1/2 left-1/2 -translate-x-1/2 px-4 z-70 bg-background shadow-lg shadow-heading transition-all duration-300 ease-out ${
+        className={`bank-modal w-72 h-52 rounded-lg fixed top-1/2 left-1/2 -translate-x-1/2 px-4 z-100 bg-background shadow-lg shadow-heading transition-all duration-300 ease-out ${
           isOpen == "bank"
             ? "opacity-100 scale-100 -translate-y-1/2 pointer-events-auto"
             : "opacity-0 scale-95 -translate-y-[45%] pointer-events-none"
@@ -91,7 +91,7 @@ export const GiftModal = () => {
         </p>
       </div>
       <div
-        className={`send-modal w-72 h-52 rounded-lg fixed top-1/2 left-1/2 -translate-x-1/2 px-4 z-80 bg-background shadow-lg shadow-heading transition-all duration-300 ease-out ${
+        className={`send-modal w-72 h-52 rounded-lg fixed top-1/2 left-1/2 -translate-x-1/2 px-4 z-100 bg-background shadow-lg shadow-heading transition-all duration-300 ease-out ${
           isOpen == "send"
             ? "opacity-100 scale-100 -translate-y-1/2 pointer-events-auto"
             : "opacity-0 scale-95 -translate-y-[45%] pointer-events-none"

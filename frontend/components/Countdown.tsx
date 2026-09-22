@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 type CountdownProps = {
   /** Tanggal & jam acara, format ISO. Contoh: "2027-01-01T08:00:00" */
   targetDate: string;
-  /** Teks kecil di atas angka countdown, opsional */
-  label?: string;
 };
 
 type TimeLeft = {
@@ -31,7 +29,7 @@ function getTimeLeft(targetDate: string): TimeLeft {
   };
 }
 
-export default function Countdown({ targetDate, label }: CountdownProps) {
+export default function Countdown({ targetDate }: CountdownProps) {
   // null dulu di render pertama supaya server & client sama persis (hindari hydration mismatch)
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
@@ -53,20 +51,14 @@ export default function Countdown({ targetDate, label }: CountdownProps) {
   ];
 
   return (
-    <div className="text-center h-[50px] md:h-[20px] lg:h-[50px] relative z-40">
-      {label && (
-        <p className="text-[13px] md:text-[16px] lg:text-[13px] mb-3 text-center text-background">
-          {label}
-        </p>
-      )}
-
+    <div className="text-center h-[50px] md:h-full lg:h-[50px] relative z-40 lg:mt-4">
       <div className="flex justify-center gap-3">
         {units.map((unit) => (
           <div
             key={unit.label}
-            className="flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 lg:w-16 lg:h-16 rounded-xl bg-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[5px] text-background"
+            className="flex flex-col items-center justify-center w-1/4 h-16 md:w-20 md:h-20 lg:w-16 lg:h-16 text-background"
           >
-            <span className="text-[22px] md:text-[26px] lg:text-[22px] font-bold leading-none tabular-nums">
+            <span className="text-[18px] md:text-[26px] lg:text-[22px] font-bold leading-none tabular-nums">
               {timeLeft === null ? "--" : String(unit.value).padStart(2, "0")}
             </span>
             <span className="text-[10px] md:text-[14px] lg:text-[10px] mt-1">

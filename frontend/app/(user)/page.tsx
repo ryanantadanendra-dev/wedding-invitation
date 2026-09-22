@@ -4,17 +4,14 @@ import { useState, useRef } from "react";
 import Cover from "@/components/Cover";
 import Image from "next/image";
 import ImageCarousel from "@/components/ImageCarousel";
-import Bunga1 from "../../public/bunga-1.png";
 import Link from "next/link";
 import Countdown from "@/components/Countdown";
 import RSVPForm from "@/components/RSVPForm";
 import { GiftModal } from "@/components/GiftModal";
 import FormPesan from "@/components/FormPesan";
 import ListUcapan from "@/components/ListUcapan";
-import SimpanTanggalBtn from "@/components/SimpanTanggalBtn";
-import ScrollAnimation from "@/components/ScrollAnimation";
-import { MapPreview } from "@/components/MapPreview";
 import { Suspense } from "react";
+import ImageGallery from "@/components/GalleryImage";
 
 type InstaBtnProps = {
   username: string;
@@ -23,6 +20,11 @@ type InstaBtnProps = {
 
 export default function Home() {
   const images = [
+    { src: "/cover-1.jpg", alt: "Deskripsi foto 1" },
+    { src: "/cover-2.jpg", alt: "Deskripsi foto 2" },
+    { src: "/cover-3.jpg", alt: "Deskripsi foto 3" },
+  ];
+  const galleryImages = [
     { src: "/cover-1.jpg", alt: "Deskripsi foto 1" },
     { src: "/cover-2.jpg", alt: "Deskripsi foto 2" },
     { src: "/cover-3.jpg", alt: "Deskripsi foto 3" },
@@ -44,7 +46,7 @@ export default function Home() {
 
   return (
     <main
-      className={`w-full lg:w-[440px] h-dvh ${isCoverOpen ? "overflow-y-hidden" : "overflow-y-auto"} overflow-x-hidden bg-background relative`}
+      className={`w-full h-dvh ${isCoverOpen ? "overflow-y-hidden" : "overflow-y-auto"} overflow-x-hidden bg-[#0d0d0d] relative`}
     >
       <audio
         ref={audioRef}
@@ -94,274 +96,137 @@ export default function Home() {
         )}
       </button>
 
-      <section id="hero" className="w-full h-dvh relative">
-        <div className="text absolute z-20 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-background">
-          <h1 className="font-tangerine font-bold  text-[32px] md:text-[70px] lg:text-[32px] text-center leading-10 md:leading-16 lg:leading-10">
-            Surya <br />&<br /> Trisna
+      <section id="hero" className="w-full h-dvh md:h-100 relative">
+        <div className="text absolute z-20 bottom-12  left-1/2 -translate-x-1/2 text-background">
+          <h1 className="font-tangerine font-bold  text-[42px] md:text-[70px] text-center leading-10 md:leading-16 lg:leading-10">
+            Surya & Trisna
           </h1>
-          <p className="text-center font-tangerine text-[24px] md:text-[28px] lg:text-[24px]">
-            19.10.2026
+          <p className="text-center font-tangerine text-[24px] md:text-[28px] lg:mt-4">
+            19&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;2026
           </p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 384 512"
-            className="w-4 md:w-6 lg:w-4 mx-auto animate-bounce mt-6 [animation-duration:2s]"
-          >
-            <path
-              fill="#faf6f0"
-              d="M214.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 402.7 329.4 265.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-160 160zm160-352l-160 160c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 210.7 329.4 73.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3z"
-            />
-          </svg>
         </div>
         <div className="overlay bg-[#2c221e90] w-full h-full absolute inset-0 top-0 z-10" />
         <ImageCarousel images={images} intervalMs={7000} fadeDurationMs={300} />
-        <ScrollAnimation
-          direction="down"
-          className="absolute -bottom-44 -left-16 z-30"
-        >
-          <Image
-            src={Bunga1}
-            alt="Bunga Hiasan"
-            width={400}
-            height={400}
-            className=" w-73 h-73 z-30"
-          />
-        </ScrollAnimation>
       </section>
-      <section className="w-full h-52 bg-background flex flex-col justify-end px-6 md:px-20 lg:px-6 text-[14px] md:text-[18px] lg:text-[14px]">
+      <section className="w-full h-52 md:h-96 flex flex-col justify-evenly items-center px-6 md:px-20 text-[10px] md:text-[18px] text-background">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          className="w-10"
+        >
+          <path
+            fill="#faf6f0"
+            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64L0 216zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-136z"
+          />
+        </svg>
         <article className="text-center">
-          Atas Asung Kerta Wara Nugraha Ida Sang Hyang Widhi Wasa / Tuhan Yang
-          Maha Esa, kami bermaksud menyelenggarakan Upacara Manusa Yadnya
-          Pawiwahan (pernikahan)
+          “Ya Tuhanku Yang Maha Pengasih, Anugerahkanlah Kepada Pasangan Ini
+          Senantiasa Kebahagiaan, Kesehatan, Tetap Bersatu dan Tidak Pernah
+          Terpisahkan, Panjang Umur dan Tinggal Dirumah Yang Penuh Kegembiraan
+          Bersama Seluruh Keturunannya”.
+          <br />
+          <br />
+          Rg Veda X.85.42
         </article>
       </section>
       <section
         id="mempelai"
-        className="w-full min-h-full grid grid-cols-1 gap-12 place-items-center py-20 md:py-32 lg:py-20 relative"
+        className="w-full min-h-full md:min-h-200 grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-0 place-items-center md:py-12 lg:py-0 lg:pb-20 relative"
       >
-        <div className="relative w-full">
-          <figure className="relative w-[192px] h-[243px] md:w-[280px] md:h-[350px] lg:w-[192px] lg:h-[243px] mx-auto">
-            <Image
-              src="/pria.jpg"
-              fill
-              alt="Mempelai Pria"
-              className="object-cover rounded-tl-[40px] rounded-tr-[40px]"
-            />
-            <Image
-              src="/burung-kanan.png"
-              alt="Burung Merpati"
-              width={200}
-              height={200}
-              className="w-20 h-20 md:w-32 md:h-32 lg:w-20 lg:h-20 absolute -top-8 md:-top-18 lg:-top-8 -left-8 md:-left-18 lg:-left-8"
-            />
-          </figure>
-          <div className="flex flex-col items-center mt-4">
-            <h2 className="font-tangerine text-center font-bold text-[30px] md:text-[50px] lg:text-[30px]">
+        <div
+          className="relative w-full h-screen md:h-200 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url(/pria.jpg)" }}
+        >
+          <div className="overlay bg-[#00000060] absolute inset-0 z-30" />
+          <div className="flex flex-col items-start mt-4 absolute z-50 text-background bottom-14 left-6">
+            <h2 className="font-tangerine font-bold text-[30px] md:text-[50px]">
               Kadek Surya Adi Saputra, S.Kom.,M.Kom
             </h2>
-            <p className="font-bold text-[14px] md:text-[18px] lg:text-[14px] mt-2">
+            <p className="font-bold text-[14px] md:text-[18px] mt-2">
               Putra kedua dari
             </p>
-            <p className="text-[12px] md:text-[15px] lg:text-[12px] mt-1 text-center">
+            <p className="text-[12px] md:text-[15px] mt-1">
               Dr. I Wayan Rinda Suardika, M.Si & <br />
               Ketut Suami
             </p>
+            <InstaBtn link="http://instagram.com" username="Instagram" />
           </div>
-          <ScrollAnimation
-            direction="down"
-            className="absolute top-12 right-0 z-30"
-          >
-            <Image
-              src="/daun-kiri.png"
-              alt="Rangkaian Daun"
-              width={100}
-              height={80}
-              className="w-[109px] h-[86px]"
-            />
-          </ScrollAnimation>
-          <ScrollAnimation
-            direction="down"
-            className="absolute -bottom-25 -right-14 z-30"
-          >
-            <Image
-              src="/bunga-2.png"
-              alt="Rangkaian Bunga"
-              width={100}
-              height={80}
-              className="w-[230px] h-[178px] "
-            />
-          </ScrollAnimation>
-          <InstaBtn link="http://instagram.com" username="Instagram" />
         </div>
-        <p className="font-tangerine text-[48px] md:text-[60px] lg:text-[48px] font-bold">
-          &
-        </p>
-        <div className="relative w-full">
-          <figure className="relative w-[192px] h-[243px] md:w-[280px] md:h-[350px] lg:w-[192px] lg:h-[243px] mx-auto">
-            <Image
-              src="/wanita.jpg"
-              fill
-              alt="Mempelai Pria"
-              className="object-cover rounded-tl-[40px] rounded-tr-[40px]"
-            />
-            <Image
-              src="/burung-kiri.png"
-              alt="Burung Merpati"
-              width={200}
-              height={200}
-              className="w-20 h-20 md:w-32 md:h-32 lg:w-20 lg:h-20 absolute -top-8 md:-top-16 lg:-top-8 -right-8 md:-right-16 lg:-right-8"
-            />
-          </figure>
-          <div className="flex flex-col items-center mt-4">
-            <h2 className="font-tangerine font-bold text-[30px] md:text-[50px] lg:text-[30px]">
+        <div
+          className="relative w-full h-screen md:h-200 bg-center bg-cover bg-no-repeat"
+          style={{ backgroundImage: "url(/wanita.jpg)" }}
+        >
+          <div className="overlay bg-[#00000060] absolute inset-0 z-30" />
+          <div className="flex flex-col items-end mt-4 absolute z-50 text-background bottom-14 right-6 text-end">
+            <h2 className="font-tangerine font-bold text-[30px] md:text-[50px] ">
               Ni Komang Trisnayanti, S.M
             </h2>
-            <p className="font-bold text-[14px] md:text-[18px] lg:text-[14px] mt-2">
+            <p className="font-bold text-[14px] md:text-[18px] mt-2">
               Putri ketiga dari
             </p>
-            <p className="text-[12px] md:text-[15px] lg:text-[12px] mt-1 text-center">
+            <p className="text-[12px] md:text-[15px] mt-1">
               I Ketut Kertayasa, S.Sos & <br />
               Ni Wayan Sekarini
             </p>
+            <InstaBtn link="http://instagram.com" username="Instagram" />
           </div>
-          <ScrollAnimation
-            direction="down"
-            className="absolute top-12 left-0 z-30"
-          >
-            <Image
-              src="/daun-kanan.png"
-              alt="Rangkaian Daun"
-              width={100}
-              height={80}
-              className="w-[109px] h-[86px] "
-            />
-          </ScrollAnimation>
-          <ScrollAnimation
-            direction="down"
-            className="absolute -bottom-25 -left-14 z-40"
-          >
-            <Image
-              src="/bunga-2-kanan.png"
-              alt="Rangkaian Bunga"
-              width={100}
-              height={80}
-              className="w-[230px] h-[178px]"
-            />
-          </ScrollAnimation>
-          <InstaBtn link="http://instagram.com" username="Instagram" />
         </div>
       </section>
       <section
-        className="countdown relative w-full h-[217px] md:h-[350px] lg:h-[217px] grid grid-cols-1 place-items-center bg-cover bg-center"
-        style={{ backgroundImage: `url(/landscape.jpg)` }}
+        id="countdown-section"
+        className="countdown w-full h-150 flex flex-col justify-evenly bg-cover bg-center z-40 text-background"
       >
-        <div className="overlay bg-[#2c221e90] absolute z-30 inset-0" />
-        <Countdown targetDate="2026-10-19T09:00:00" label="Save The Dates" />
-        <SimpanTanggalBtn
-          title="Pawiwahan Surya & Trisna"
-          startDate="2026-10-19T09:00:00+08:00"
-          endDate="2026-10-19T22:00:00+08:00"
-          location="Alamat Lokasi Acara"
-          description="Dengan hormat mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami."
-        />
-        <ScrollAnimation
-          direction="down"
-          className="absolute -bottom-12 -right-12 z-40"
-        >
-          <Image
-            src="/bunga-3.png"
-            alt="Bunga Mawar"
-            width={100}
-            height={100}
-            className="w-[187px] h-[123px] -rotate-45"
-          />
-        </ScrollAnimation>
-      </section>
-      <section className="w-full min-h-[460px] relative grid grid-cols-1 place-items-center gap-12 py-12">
-        <div>
-          <h2 className="text-[32px] md:text-[38px] lg:text-[32px] text-heading font-tangerine text-center">
-            Pawiwahan
-          </h2>
-          <p className="font-bodoni font-bold text-center text-[14px] md:text-[18px] lg:text-[14px]">
-            09:00 WITA s/d Selesai
+        <div className="text-center px-4 md:px-32">
+          <p className="text-[12px] md:text-[18px]">
+            Atas Asung Kerta Wara Nugraha Ida Sang Hyang Widi Wasa/Tuhan Yang
+            Maha Esa, Kami Bermaksud Mengundang Bapak/Ibu/Saudara/i, Pada Acara
+            Pawiwahan (Pernikahan) Putra & Putri Kami Yang Akan Dilaksanakan
+            Pada :
           </p>
         </div>
-        <ScrollAnimation
-          direction="down"
-          className="absolute top-56 -left-6 z-40"
-        >
-          <Image
-            src="/daun-kanan.png"
-            alt="Rangkaian Daun"
-            width={100}
-            height={80}
-            className="w-[109px] h-[86px]"
-          />
-        </ScrollAnimation>
-        <div className="relative w-[192px] h-[243px] md:w-[340px] md:h-[400px] lg:w-[192px] lg:h-[243px]">
-          <Image
-            src="/burung-kiri.png"
-            alt="Burung Merpati"
-            width={200}
-            height={200}
-            className="w-20 h-20 md:w-32 md:h-32 lg:w-20 lg:h-20 absolute -top-8 md:-top-18 lg:-top-8 -right-8 md:-right-18 lg:-right-8 z-30"
-          />
-          <MapPreview
-            url="https://maps.app.goo.gl/oRQEKVFZ6vqb3bKw5"
-            height="160px"
-            style={{
-              boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-              height: "100%",
-            }}
-          />
-        </div>
-        <div>
-          <p className="font-bold text-[14px] md:text-[18px] lg:text-[14px] px-12 md:px-52 lg:px-12 text-center">
-            Jl. P. Moyo I No. 1, Pedungan, Denpasar Selatan, Kota Denpasar, Bali
-            80222
+        <div className="text-background text-center grid grid-cols-1 gap-3">
+          <div className="w-screen h-[1px] bg-background"></div>
+          <p className="text-[12px] md:text-[18px]">Senin, 19 Oktober 2026</p>
+          <p className="text-[12px] md:text-[18px]">
+            Waktu: 09:00 WITA s/d 22:00 WITA
           </p>
+          <p className="text-[12px] md:text-[18px]">Denpasar, Bali</p>
           <Link
-            href="https://maps.app.goo.gl/AMMYepbR9Sm2ppzm7"
-            className="w-[117px] md:w-[140px] lg:w-[117px] h-[40px] md:h-[50px] lg:h-[40px] mx-auto gap-1 mt-6 flex justify-center items-center bg-accent text-background rounded-tr-[20px] rounded-bl-[20px] text-[12px] z-40"
+            href="https://maps.app.goo.gl/yvK5j31Jp92PrDCx5"
+            className="block w-44 mx-auto px-4 py-1 border border-background rounded-lg text-[12px]"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 640 640"
-              className="w-3 md:w-4 lg:w-3"
-            >
-              <path
-                fill="#faf6f0"
-                d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"
-              />
-            </svg>
-            <p className="text-[12px] md:text-[14px] lg:text-[12px]">
-              Lihat Peta
-            </p>
+            Peta Lokasi
           </Link>
+          <Countdown targetDate="2026-10-19T09:00:00" />
+          <div className="w-screen h-[1px] bg-background mt-4"></div>
         </div>
-        <ScrollAnimation
-          direction="down"
-          className="absolute bottom-2 right-0 z-40"
-        >
-          <Image
-            src="/daun-kiri.png"
-            alt="Rangkaian Daun"
-            width={100}
-            height={80}
-            className="w-[109px] h-[86px]"
-          />
-        </ScrollAnimation>
+        <div className=" text-center px-4 md:px-32">
+          <p className="text-[12px] md:text-[18px]">
+            Merupakan Suatu Kehormatan dan Kebahagiaan Bagi Kami Apabila
+            Bapak/Ibu/Saudara/i Berkenan Hadir Untuk Memberikan Doa Restu Kepada
+            Putra dan Putri Kami. <br />
+            <br />
+            Atas Kehadiran dan Doa Restunya Kami Ucapkan Terima Kasih.
+          </p>
+        </div>
+      </section>
+      <section className="w-full min-h-fit relative py-12 bg-body text-background text-center">
+        <h2 className="font-tangerine font-bold text-[32px] lg:text-[48px]">
+          Pre -Wedding Collections
+        </h2>
+        <div className="w-full md:w-170 mx-auto">
+          <ImageGallery images={galleryImages} columns={3} />
+        </div>
       </section>
       <section
-        className="w-full min-h-[360px] py-12 relative bg-cover bg-center"
-        style={{ backgroundImage: `url(/picture-1.jpg)` }}
+        id="rsvp-section"
+        className="w-full min-h-90 py-12 relative bg-cover bg-center z-40"
       >
-        <div className="overlay bg-[#2c221ead] absolute z-30 inset-0" />
-        <div className="ps-3 pe-16 relative z-40 text-background">
-          <h2 className="text-[32px] md:text-[48px] lg:text-[32px] font-tangerine font-bold">
+        <div className="px-6 md:px-0 relative z-40 text-background">
+          <h2 className="text-[32px] md:text-[48px] lg:text-[48px] font-tangerine font-bold text-center">
             RSVP
           </h2>
-          <p className="text-[10px] md:text-[12px] lg:text-[10px] pe-0 md:pe-32 lg:pe-0 font-bodoni">
+          <p className="text-[12px] md:text-[18px] lg:text-[18px] md:ps-12 md:pe-12 font-bodoni">
             Kehadiran dan doa restu Anda adalah hadiah terindah di hari bahagia
             kami. Demi kelancaran acara, mohon bantuannya untuk mengisi
             konfirmasi kehadiran di bawah ini
@@ -370,25 +235,13 @@ export default function Home() {
         <Suspense fallback={null}>
           <RSVPForm />
         </Suspense>
-        <ScrollAnimation
-          direction="down"
-          className="absolute -bottom-12 -right-12 z-40"
-        >
-          <Image
-            src="/bunga-3.png"
-            alt="Bunga Mawar"
-            width={100}
-            height={100}
-            className="w-[187px] h-[123px] -rotate-90"
-          />
-        </ScrollAnimation>
       </section>
-      <section className="w-full min-h-[195px] md:min-h-[350px] lg:min-h-[195px] grid grid-cols-1 place-items-center py-12">
-        <div className=" text-center px-16">
-          <h2 className="text-[32px] md:text-[48px] lg:text-[32px] font-bold font-tangerine">
+      <section className="w-full bg-body min-h-[195px] md:min-h-[350px] lg:min-h-[195px] grid grid-cols-1 place-items-center py-12">
+        <div className=" text-center px-16 text-background">
+          <h2 className="text-[32px] md:text-[48px] lg:text-[48px] font-bold font-tangerine">
             GIFT
           </h2>
-          <p className="text-[10px] md:text-[12px] lg:text-[10px]">
+          <p className="text-[12px] md:text-[18px] md:px-32">
             Tanpa mengurangi rasa hormat, bagi Anda yang ingin memberikan tanda
             kasih untuk mempelai, dapat menyalurkannya melalui rekening di bawah
             ini:
@@ -398,65 +251,22 @@ export default function Home() {
           <GiftModal />
         </div>
       </section>
-      <section
-        className="w-full min-h-240 bg-cover bg-center relative"
-        style={{ backgroundImage: "url(/cover-2.jpg)" }}
-      >
-        <div className="overlay bg-[#faf6f060] absolute inset-0" />
-        <ScrollAnimation
-          direction="down"
-          className="absolute -top-6 left-0 z-40"
-        >
-          <Image
-            src="/daun-kanan.png"
-            alt="Rangkaian Daun"
-            width={100}
-            height={80}
-            className="w-[109px] h-[86px]"
-          />
-        </ScrollAnimation>
-        <div className="absolute bg-background w-84 md:w-140 lg:w-84 h-220 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl">
-          <Image
-            src="/burung-kiri.png"
-            alt="Burung Merpati"
-            width={200}
-            height={200}
-            className="w-14 h-14 md:w-20 md:h-20 lg:w-14 lg:h-14 absolute -top-8 -right-4 md:-right-8 lg:-right-4"
-          />
+      <section id="pesan-section" className="w-full min-h-240 relative">
+        <div className="absolute bg-transparent w-84 md:w-140 lg:w-84 h-220 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl">
           <Suspense fallback={null}>
             <FormPesan />
           </Suspense>
           <ListUcapan />
         </div>
-        <ScrollAnimation
-          direction="down"
-          className="absolute -bottom-2 md:bottom-8 lg:-bottom-2 -right-14 z-40"
-        >
-          <Image
-            src="/bunga-2.png"
-            alt="Rangkaian Bunga"
-            width={100}
-            height={80}
-            className="w-[180px]"
-          />
-        </ScrollAnimation>
       </section>
       <section
-        className="w-full h-[247px] bg-cover bg-center relative"
-        style={{ backgroundImage: "url(/pattern.jpg)" }}
+        id="closing-section"
+        className="w-full h-[247px] md:h-[300px] bg-cover bg-center relative"
       >
-        <div className="overlay bg-[#faf6f0c5] absolute inset-0" />
-        <div className="absolute z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <h2 className="font-tangerine font-bold text-[38px] text-center text-heading">
+        <div className="absolute z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-background">
+          <h2 className="font-tangerine font-bold text-[32px] md:text-[48px] text-center ">
             Om Santih, Santih, Santih, Om
           </h2>
-          <p className="text-[8px] text-center ">
-            Terima kasih telah menjadi bagian dari kisah perjalanan cinta kami.
-            Kehadiran dan doa restu Anda adalah kado terindah di hari istimewa
-            ini. <br />
-            <br />
-            <span className="font-bold">See you on our big day!</span>
-          </p>
         </div>
       </section>
     </main>
@@ -467,12 +277,12 @@ const InstaBtn = ({ link, username }: InstaBtnProps) => {
   return (
     <Link
       href={link}
-      className="w-[117px] md:w-[140px] lg:w-[117px] h-[40px] md:h-[50px] lg:h-[40px] mx-auto mt-6 flex justify-center items-center bg-accent text-background rounded-tr-[20px] rounded-bl-[20px] text-[10px]"
+      className="px-4 py-2 mt-6 rounded-lg flex justify-center items-center bg-heading text-background text-[10px] gap-2"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 640 640"
-        className="w-3 md:w-5 lg:w-3 xl:w-3 2xl:w-3"
+        className="w-4 md:w-5 lg:w-3 xl:w-3 2xl:w-3"
       >
         <path
           fill="#faf6f0"
