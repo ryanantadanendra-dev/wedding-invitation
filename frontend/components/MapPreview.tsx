@@ -29,7 +29,7 @@ export const MapPreview = ({
   style = {},
 }: MapPreviewProps) => {
   const [shouldLoad, setShouldLoad] = useState(false);
-  const [embedSrc, setEmbedSrc] = useState(null);
+  const [embedSrc, setEmbedSrc] = useState<string | null>(null);
   const [isValid, setIsValid] = useState(true);
   const ref = useRef(null);
 

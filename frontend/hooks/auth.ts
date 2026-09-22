@@ -7,7 +7,7 @@ import { ValidationErrors } from "@/types/auth";
 
 export type useAuthProp = {
   middleware?: "guest" | "auth";
-  redirectIfAuthenticated?: string;
+  redirectIfAuthenticated: string;
 };
 
 export const useAuth = ({
