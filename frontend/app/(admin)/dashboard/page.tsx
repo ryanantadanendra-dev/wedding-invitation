@@ -17,7 +17,10 @@ export default function KehadiranPage() {
     setErrorMessage(null);
 
     getKehadiran(page)
-      .then((data) => setResult(data))
+      .then((data) => {
+        console.log("DATA DARI API:", data);
+        setResult(data);
+      })
       .catch(() => setErrorMessage("Gagal memuat data kehadiran."))
       .finally(() => setIsLoading(false));
   }, [page]);
@@ -115,12 +118,12 @@ export default function KehadiranPage() {
         {!isLoading && result && result?.total > 0 && (
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-4 border-t border-gray-200">
             <p className="text-sm text-gray-500">
-              Menampilkan {result?.from}–{result?.to} dari {result?.total} data
+              Menampilkan {result.from}–{result.to} dari {result.total} data
             </p>
 
             <Pagination
-              currentPage={result?.current_page}
-              lastPage={result?.last_page}
+              currentPage={result.current_page}
+              lastPage={result.last_page}
               onPageChange={setPage}
             />
           </div>
