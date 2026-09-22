@@ -7,7 +7,7 @@ import { ValidationErrors } from "@/types/auth";
 
 export type useAuthProp = {
   middleware?: "guest" | "auth";
-  redirectIfAuthenticated: string;
+  redirectIfAuthenticated?: string;
 };
 
 export const useAuth = ({
@@ -87,7 +87,7 @@ export const useAuth = ({
     //     router.push('/verify-email')
 
     if (window.location.pathname === "/verify-email" && user?.email_verified_at)
-      router.push(redirectIfAuthenticated);
+      router.push(redirectIfAuthenticated ?? "/");
     if (middleware === "auth" && error) logout();
   }, [user, error]);
 
