@@ -423,7 +423,9 @@ export default function Home() {
             height={200}
             className="w-14 h-14 md:w-20 md:h-20 lg:w-14 lg:h-14 absolute -top-8 -right-4 md:-right-8 lg:-right-4"
           />
-          <FormPesan />
+          <Suspense fallback={null}>
+            <FormPesan />
+          </Suspense>
           <ListUcapan />
         </div>
         <ScrollAnimation
