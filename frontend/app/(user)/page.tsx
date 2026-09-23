@@ -149,7 +149,10 @@ export default function Home() {
               Dr. I Wayan Rinda Suardika, M.Si & <br />
               Ketut Suami
             </p>
-            <InstaBtn link="http://instagram.com" username="Instagram" />
+            <InstaBtn
+              link="https://www.instagram.com/adisuryasptr/"
+              username="adisuryasptr"
+            />
           </div>
         </div>
         <div
@@ -168,7 +171,10 @@ export default function Home() {
               I Ketut Kertayasa, S.Sos & <br />
               Ni Wayan Sekarini
             </p>
-            <InstaBtn link="http://instagram.com" username="Instagram" />
+            <InstaBtn
+              link="https://www.instagram.com/trisna_yantii/"
+              username="trisna_yantii"
+            />
           </div>
         </div>
       </section>
@@ -184,7 +190,7 @@ export default function Home() {
             Pada :
           </p>
         </div>
-        <div className="text-background text-center grid grid-cols-1 gap-3">
+        <div className="text-background text-center grid grid-cols-1 gap-3 text-center">
           <div className="w-screen h-[1px] bg-background"></div>
           <p className="text-[12px] md:text-[18px]">Senin, 19 Oktober 2026</p>
           <p className="text-[12px] md:text-[18px]">
@@ -192,7 +198,7 @@ export default function Home() {
           </p>
           <p className="text-[12px] md:text-[18px]">Denpasar, Bali</p>
           <Link
-            href="https://maps.app.goo.gl/yvK5j31Jp92PrDCx5"
+            href="https://maps.app.goo.gl/fGvuzaQ3wfC7bo5a8"
             className="block w-44 mx-auto px-4 py-1 border border-background rounded-lg text-[12px]"
           >
             Peta Lokasi
@@ -211,7 +217,7 @@ export default function Home() {
         </div>
       </section>
       <section className="w-full min-h-fit relative py-12 bg-body text-background text-center">
-        <h2 className="font-tangerine font-bold text-[32px] lg:text-[48px]">
+        <h2 className="font-tangerine font-bold text-[32px] lg:text-[48px] text-center">
           Pre -Wedding Collections
         </h2>
         <div className="w-full md:w-170 mx-auto">
@@ -224,7 +230,7 @@ export default function Home() {
       >
         <div className="px-6 md:px-0 relative z-40 text-background">
           <h2 className="text-[32px] md:text-[48px] lg:text-[48px] font-tangerine font-bold text-center">
-            RSVP
+            Konfirmasi Kehadiran
           </h2>
           <p className="text-[12px] md:text-[18px] lg:text-[18px] md:ps-12 md:pe-12 font-bodoni">
             Kehadiran dan doa restu Anda adalah hadiah terindah di hari bahagia
@@ -238,8 +244,8 @@ export default function Home() {
       </section>
       <section className="w-full bg-body min-h-[195px] md:min-h-[350px] lg:min-h-[195px] grid grid-cols-1 place-items-center py-12">
         <div className=" text-center px-16 text-background">
-          <h2 className="text-[32px] md:text-[48px] lg:text-[48px] font-bold font-tangerine">
-            GIFT
+          <h2 className="text-[32px] md:text-[48px] lg:text-[48px] font-bold font-tangerine text-center">
+            Kirim Hadiah
           </h2>
           <p className="text-[12px] md:text-[18px] md:px-32">
             Tanpa mengurangi rasa hormat, bagi Anda yang ingin memberikan tanda
@@ -268,6 +274,14 @@ export default function Home() {
             Om Santih, Santih, Santih, Om
           </h2>
         </div>
+        <p className="text-background opacity-30 text-[8px] md:text-[12px] lg:text-[14px] absolute bottom-2 left-1/2 -translate-x-1/2 text-center">
+          @ all rights reserved by{" "}
+          <span className="underline">
+            <Link href="http://instagram.com/agunkdanend" target="_blank">
+              @agunkdanend
+            </Link>
+          </span>
+        </p>
       </section>
     </main>
   );
