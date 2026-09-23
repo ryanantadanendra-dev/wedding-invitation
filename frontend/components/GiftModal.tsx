@@ -30,15 +30,15 @@ export const GiftModal = () => {
 
       try {
         document.execCommand("copy");
-        setIsCopied(true);
+        setIsCopied(bank);
       } catch {
-        setIsCopied(false);
+        setIsCopied("");
       }
 
       document.body.removeChild(textarea);
     }
 
-    setTimeout(() => setIsCopied(false), resetAfterMs);
+    setTimeout(() => setIsCopied(""), resetAfterMs);
   };
 
   return (
