@@ -141,7 +141,7 @@ export const GiftModal = () => {
         </button>
       </div>
       <div
-        className={`send-modal w-72 h-52 rounded-lg fixed top-1/2 left-1/2 -translate-x-1/2 px-4 z-100 bg-background shadow-lg shadow-heading transition-all duration-300 ease-out ${
+        className={`send-modal w-72 h-62 rounded-lg fixed top-1/2 left-1/2 -translate-x-1/2 px-4 z-100 bg-background shadow-lg shadow-heading transition-all duration-300 ease-out ${
           isOpen == "send"
             ? "opacity-100 scale-100 -translate-y-1/2 pointer-events-auto"
             : "opacity-0 scale-95 -translate-y-[45%] pointer-events-none"

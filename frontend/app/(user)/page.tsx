@@ -274,7 +274,7 @@ export default function Home() {
             Om Santih, Santih, Santih, Om
           </h2>
         </div>
-        <p className="text-background opacity-30 text-[8px] md:text-[12px] lg:text-[14px] absolute bottom-2 left-1/2 -translate-x-1/2 text-center">
+        <p className="text-background opacity-30 text-[10px] md:text-[12px] lg:text-[14px] absolute bottom-2 left-1/2 -translate-x-1/2 text-center">
           @ all rights reserved by{" "}
           <span className="underline">
             <Link href="http://instagram.com/agunkdanend" target="_blank">
