@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Pagination from "@/components/Pagination";
 import { getKehadiran, type Kehadiran } from "@/hooks/kehadiran";
 import { LaravelPaginatedResponse } from "@/types";
+import { useAuth } from "@/hooks/auth";
+import { useRouter } from "next/navigation";
 
 export default function KehadiranPage() {
   const [result, setResult] =
@@ -11,6 +13,14 @@ export default function KehadiranPage() {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const router = useRouter();
+  const { user } = useAuth({ middleware: "auth" });
+
+  useEffect(() => {
+    if (user === null) {
+      router.push("/login");
+    }
+  }, [user, router]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -18,7 +28,6 @@ export default function KehadiranPage() {
 
     getKehadiran(page)
       .then((data) => {
-        console.log("DATA DARI API:", data);
         setResult(data);
       })
       .catch(() => setErrorMessage("Gagal memuat data kehadiran."))
@@ -26,7 +35,7 @@ export default function KehadiranPage() {
   }, [page]);
 
   return (
-    <div>
+    <div className="w-full">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900">Data Kehadiran</h1>
         <p className="text-sm text-gray-500 mt-1">
@@ -125,6 +134,7 @@ export default function KehadiranPage() {
               currentPage={result.current_page}
               lastPage={result.last_page}
               onPageChange={setPage}
+              className="text-body"
             />
           </div>
         )}

@@ -4,6 +4,7 @@ type PaginationProps = {
   currentPage: number;
   lastPage: number;
   onPageChange: (page: number) => void;
+  className?: string;
 };
 
 function getPageNumbers(current: number, last: number): (number | "...")[] {
@@ -28,6 +29,7 @@ export default function Pagination({
   currentPage,
   lastPage,
   onPageChange,
+  className,
 }: PaginationProps) {
   if (lastPage <= 1) return null;
 
@@ -36,7 +38,7 @@ export default function Pagination({
   return (
     <nav
       aria-label="Pagination"
-      className="flex items-center justify-center gap-1 text-background"
+      className={`flex items-center justify-center gap-1 text-background ${className}`}
     >
       {/* Tombol Prev */}
       <button

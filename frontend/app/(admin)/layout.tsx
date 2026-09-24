@@ -36,7 +36,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-dvh bg-gray-50">
+    <div className="flex min-h-dvh w-full bg-gray-50">
       {/* Overlay untuk mobile saat sidebar terbuka */}
       <div
         onClick={() => setIsSidebarOpen(false)}
