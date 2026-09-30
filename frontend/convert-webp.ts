@@ -7,7 +7,7 @@ const outputDir = path.join(__dirname, "../frontend/public/asset-webp");
 
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-fs.readdirSync(inputDir).forEach(async (file) => {
+fs.readdirSync(inputDir).forEach(async (file: string) => {
   if (!/\.(jpe?g|png)$/i.test(file)) return;
 
   const outputFile = path.join(

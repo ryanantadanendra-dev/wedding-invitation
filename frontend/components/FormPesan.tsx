@@ -5,6 +5,12 @@ import axios from "@/lib/axios";
 import { useSearchParams } from "next/navigation";
 import ModalSukses from "./ModalSukses";
 import { mutate } from "swr";
+import { AxiosError } from "axios";
+
+interface ValidationErrorResponse {
+  message?: string;
+  errors?: Record<string, string[]>;
+}
 
 type FieldErrors = Partial<Record<"nama" | "pesan", string>>;
 
@@ -38,8 +44,9 @@ export default function FormPesan() {
         mutate((key) => Array.isArray(key) && key[0] === "ucapan");
       }
     } catch (err) {
-      const status = err.response?.status;
-      const data = err.response?.data;
+      const error = err as AxiosError<ValidationErrorResponse>;
+      const status = error.response?.status;
+      const data = error.response?.data;
 
       if (status === 422 && data?.errors) {
         // Ambil pesan pertama dari tiap field
