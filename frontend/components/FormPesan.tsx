@@ -41,6 +41,7 @@ export default function FormPesan() {
         setPesan("");
         setPesanSukses(response.data.message);
         setIsOpen(true);
+        setError({});
         mutate((key) => Array.isArray(key) && key[0] === "ucapan");
       }
     } catch (err) {
@@ -51,7 +52,7 @@ export default function FormPesan() {
       if (status === 422 && data?.errors) {
         // Ambil pesan pertama dari tiap field
         setError({
-          nama: data.errors.nama?.[0],
+          nama: "Nama ini telah digunakan oleh pengguna lain. Silakan masukkan nama baru.",
           pesan: data.errors.pesan?.[0],
         });
       }
