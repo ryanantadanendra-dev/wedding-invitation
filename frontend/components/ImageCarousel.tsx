@@ -6,6 +6,7 @@ import Image from "next/image";
 export type CarouselImage = {
   src: string;
   alt: string;
+  position: string;
 };
 
 type ImageCarouselProps = {
@@ -58,7 +59,8 @@ export default function ImageCarousel({
           src={image.src}
           alt={image.alt}
           fill
-          className=" object-cover z-0"
+          sizes="100vw"
+          className={`object-cover z-0 ${image.position}`}
           style={{
             opacity: index === activeIndex && isVisible ? 1 : 0,
             transition: `opacity ${fadeDurationMs}ms ease-in-out`,

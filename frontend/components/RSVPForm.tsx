@@ -38,10 +38,8 @@ export default function RSVPForm() {
         setPesanSukse(response.data.message);
       }
     } catch (error: any) {
-      if (error.response) {
-        const data = error.response.data;
-
-        setError(data.errors);
+      if (error.response?.data?.errors) {
+        setError(error.response.data.errors);
       }
     }
 
@@ -108,9 +106,9 @@ export default function RSVPForm() {
               />
             </svg>
           </div>
-          <p className="text-background text-[14px]">
+          <p className="text-background text-[14px] mt-4">
             {error.nama
-              ? "Hanya Boleh Mengisi Form Sekali"
+              ? "Hanya Boleh Mengisi Form Satu Kali!"
               : error.kehadiran
                 ? error.kehadiran
                 : error.jumlah_tamu}

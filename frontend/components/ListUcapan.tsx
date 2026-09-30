@@ -17,7 +17,7 @@ export default function ListUcapan() {
   });
 
   return (
-    <div className="max-w-xl mx-auto py-10 px-4">
+    <div className="  max-w-xl mx-auto py-10 px-4">
       <h1 className="text-[20px] font-bold text-center text-background mb-6">
         Ucapan &amp; Doa
       </h1>

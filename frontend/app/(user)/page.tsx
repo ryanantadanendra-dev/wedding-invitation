@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Cover from "@/components/Cover";
 import Image from "next/image";
 import ImageCarousel from "@/components/ImageCarousel";
@@ -20,19 +20,82 @@ type InstaBtnProps = {
 
 export default function Home() {
   const images = [
-    { src: "/cover-1.jpg", alt: "Deskripsi foto 1" },
-    { src: "/cover-2.jpg", alt: "Deskripsi foto 2" },
-    { src: "/cover-3.jpg", alt: "Deskripsi foto 3" },
+    {
+      src: "/asset-webp/image-1.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-[25%_40%]",
+    },
+    {
+      src: "/asset-webp/image-4.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-[25%_70%]",
+    },
+    {
+      src: "/asset-webp/image-6.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-[50%_38%]",
+    },
   ];
   const galleryImages = [
-    { src: "/cover-1.jpg", alt: "Deskripsi foto 1" },
-    { src: "/cover-2.jpg", alt: "Deskripsi foto 2" },
-    { src: "/cover-3.jpg", alt: "Deskripsi foto 3" },
+    {
+      src: "/asset-webp/image-1.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-4.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-6.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-2.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-5.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-7.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-8.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-9.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-10.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-11.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
   ];
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isCoverOpen, setIsCoverOpen] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    setIsPlaying(localStorage.getItem("music") === "on");
+  }, []);
 
   const handleToggleMusic = () => {
     if (!audioRef.current) return;
@@ -135,7 +198,7 @@ export default function Home() {
       >
         <div
           className="relative w-full h-screen md:h-200 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url(/pria.jpg)" }}
+          style={{ backgroundImage: "url(/asset/image-3.jpeg)" }}
         >
           <div className="overlay bg-[#00000060] absolute inset-0 z-30" />
           <div className="flex flex-col items-start mt-4 absolute z-50 text-background bottom-14 left-6">
@@ -157,7 +220,7 @@ export default function Home() {
         </div>
         <div
           className="relative w-full h-screen md:h-200 bg-center bg-cover bg-no-repeat"
-          style={{ backgroundImage: "url(/wanita.jpg)" }}
+          style={{ backgroundImage: "url(/asset/image-12.JPG)" }}
         >
           <div className="overlay bg-[#00000060] absolute inset-0 z-30" />
           <div className="flex flex-col items-end mt-4 absolute z-50 text-background bottom-14 right-6 text-end">
@@ -222,6 +285,18 @@ export default function Home() {
         </h2>
         <div className="w-full md:w-170 mx-auto">
           <ImageGallery images={galleryImages} columns={3} />
+          <video
+            controls
+            playsInline
+            preload="metadata"
+            poster="/asset/image-1.jpeg"
+            className="w-full h-full object-cover mt-7"
+          >
+            <source
+              src="https://res.cloudinary.com/dpghhbxwz/video/upload/v1790775917/copy_57192DE7-CA5A-4539-8664-59489A6DF23A_oi7ezr.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
       </section>
       <section
@@ -257,8 +332,11 @@ export default function Home() {
           <GiftModal />
         </div>
       </section>
-      <section id="pesan-section" className="w-full min-h-240 relative">
-        <div className="absolute bg-transparent w-84 md:w-140 lg:w-84 h-220 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl">
+      <section
+        id="pesan-section"
+        className="w-full min-h-250 md:min-h-full relative"
+      >
+        <div className=" bg-transparent w-screen min-h-250 h-full z-50 rounded-xl relative flex flex-col items-center justify-center">
           <Suspense fallback={null}>
             <FormPesan />
           </Suspense>

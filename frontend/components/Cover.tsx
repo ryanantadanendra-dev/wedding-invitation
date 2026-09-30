@@ -11,9 +11,26 @@ type CoverProps = {
 
 export default function Cover({ onOpen, onOpened }: CoverProps) {
   const images = [
-    { src: "/cover-1.jpg", alt: "Deskripsi foto 1" },
-    { src: "/cover-2.jpg", alt: "Deskripsi foto 2" },
-    { src: "/cover-3.jpg", alt: "Deskripsi foto 3" },
+    {
+      src: "/asset-webp/image-1.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-4.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-[25%_85%]",
+    },
+    {
+      src: "/asset-webp/image-7.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-[50%_70%]",
+    },
+    {
+      src: "/asset-webp/image-5.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-[50%_40%]",
+    },
   ];
 
   const searchParams = useSearchParams();
