@@ -198,7 +198,7 @@ export default function Home() {
       >
         <div
           className="relative w-full h-screen md:h-200 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url(/asset/image-3.jpeg)" }}
+          style={{ backgroundImage: "url(/asset-webp/image-3.webp)" }}
         >
           <div className="overlay bg-[#00000060] absolute inset-0 z-30" />
           <div className="flex flex-col items-start mt-4 absolute z-50 text-background bottom-14 left-6">
@@ -220,7 +220,7 @@ export default function Home() {
         </div>
         <div
           className="relative w-full h-screen md:h-200 bg-center bg-cover bg-no-repeat"
-          style={{ backgroundImage: "url(/asset/image-12.JPG)" }}
+          style={{ backgroundImage: "url(/asset-webp/image-12.webp)" }}
         >
           <div className="overlay bg-[#00000060] absolute inset-0 z-30" />
           <div className="flex flex-col items-end mt-4 absolute z-50 text-background bottom-14 right-6 text-end">
@@ -289,7 +289,7 @@ export default function Home() {
             controls
             playsInline
             preload="metadata"
-            poster="/asset/image-1.jpeg"
+            poster="/asset-webp/image-4.webp"
             className="w-full h-full object-cover mt-7"
           >
             <source
