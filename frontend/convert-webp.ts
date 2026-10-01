@@ -5,19 +5,37 @@ const sharp = require("sharp");
 const inputDir = path.join(__dirname, "../frontend/public/asset");
 const outputDir = path.join(__dirname, "../frontend/public/asset-webp");
 
-if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+async function convertImages() {
+  fs.mkdirSync(outputDir, { recursive: true });
 
-fs.readdirSync(inputDir).forEach(async (file: string) => {
-  if (!/\.(jpe?g|png)$/i.test(file)) return;
+  const files = fs
+    .readdirSync(inputDir)
+    .filter((file) => /\.(jpe?g|png)$/i.test(file));
 
-  const outputFile = path.join(
-    outputDir,
-    file.replace(/\.(jpe?g|png)$/i, ".webp"),
+  await Promise.all(
+    files.map(async (file) => {
+      const outputFile = path.join(
+        outputDir,
+        file.replace(/\.(jpe?g|png)$/i, ".webp"),
+      );
+
+      if (fs.existsSync(outputFile)) {
+        console.log(`⏭ ${file} skipped (already converted)`);
+        return;
+      }
+
+      await sharp(path.join(inputDir, file))
+        .webp({ quality: 80 })
+        .toFile(outputFile);
+
+      console.log(`✔ ${file} → ${path.basename(outputFile)}`);
+    }),
   );
 
-  await sharp(path.join(inputDir, file))
-    .webp({ quality: 80 })
-    .toFile(outputFile);
+  console.log("Done");
+}
 
-  console.log(`✔ ${file} → ${path.basename(outputFile)}`);
+convertImages().catch((err) => {
+  console.error("Conversion failed:", err);
+  process.exit(1);
 });

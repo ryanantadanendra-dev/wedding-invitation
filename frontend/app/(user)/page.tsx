@@ -33,32 +33,12 @@ export default function Home() {
     {
       src: "/asset-webp/image-6.webp",
       alt: "Pre-Wedding Photo",
-      position: "object-[50%_38%]",
+      position: "object-[43%_38%] md:object-[50%_38%]",
     },
   ];
   const galleryImages = [
     {
       src: "/asset-webp/image-1.webp",
-      alt: "Pre-Wedding Photo",
-      position: "object-center",
-    },
-    {
-      src: "/asset-webp/image-4.webp",
-      alt: "Pre-Wedding Photo",
-      position: "object-center",
-    },
-    {
-      src: "/asset-webp/image-6.webp",
-      alt: "Pre-Wedding Photo",
-      position: "object-center",
-    },
-    {
-      src: "/asset-webp/image-2.webp",
-      alt: "Pre-Wedding Photo",
-      position: "object-center",
-    },
-    {
-      src: "/asset-webp/image-5.webp",
       alt: "Pre-Wedding Photo",
       position: "object-center",
     },
@@ -83,7 +63,82 @@ export default function Home() {
       position: "object-center",
     },
     {
+      src: "/asset-webp/image-2.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-20.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-19.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-18.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
       src: "/asset-webp/image-11.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-13.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-17.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-6.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-5.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-21.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-22.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-23.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-24.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-4.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-25.webp",
+      alt: "Pre-Wedding Photo",
+      position: "object-center",
+    },
+    {
+      src: "/asset-webp/image-26.webp",
       alt: "Pre-Wedding Photo",
       position: "object-center",
     },
@@ -285,18 +340,20 @@ export default function Home() {
         </h2>
         <div className="w-full md:w-170 mx-auto">
           <ImageGallery images={galleryImages} columns={3} />
-          <video
-            controls
-            playsInline
-            preload="metadata"
-            poster="/asset-webp/image-4.webp"
-            className="w-full h-full object-cover mt-7"
-          >
-            <source
-              src="https://res.cloudinary.com/dpghhbxwz/video/upload/v1790775917/copy_57192DE7-CA5A-4539-8664-59489A6DF23A_oi7ezr.mp4"
-              type="video/mp4"
-            />
-          </video>
+          <div className="flex justify-center">
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster="/asset-webp/image-4.webp"
+              className="md:w-90 w-86 h-full object-cover mt-7"
+            >
+              <source
+                src="https://res.cloudinary.com/dpghhbxwz/video/upload/v1790775917/copy_57192DE7-CA5A-4539-8664-59489A6DF23A_oi7ezr.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
         </div>
       </section>
       <section
