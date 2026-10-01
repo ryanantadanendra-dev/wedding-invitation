@@ -10,10 +10,10 @@ async function convertImages() {
 
   const files = fs
     .readdirSync(inputDir)
-    .filter((file) => /\.(jpe?g|png)$/i.test(file));
+    .filter((file: string) => /\.(jpe?g|png)$/i.test(file));
 
   await Promise.all(
-    files.map(async (file) => {
+    files.map(async (file: string) => {
       const outputFile = path.join(
         outputDir,
         file.replace(/\.(jpe?g|png)$/i, ".webp"),
